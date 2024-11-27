@@ -70,6 +70,7 @@ class DesktopOAuth2 {
       {String? codeVerifier}) async {
     Map<String, String> tokenReqPayload = {
       'client_id': desktopAuthCodeFlow.clientId,
+      'client_secret': desktopAuthCodeFlow.clientSecret,
       'redirect_uri': desktopAuthCodeFlow.redirectUri,
       'grant_type': 'authorization_code',
       'code': code
