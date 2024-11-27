@@ -70,7 +70,6 @@ class DesktopOAuth2 {
       {String? codeVerifier}) async {
     Map<String, String> tokenReqPayload = {
       'client_id': desktopAuthCodeFlow.clientId,
-      'client_secret': desktopAuthCodeFlow.clientSecret,
       'redirect_uri': desktopAuthCodeFlow.redirectUri,
       'grant_type': 'authorization_code',
       'code': code
@@ -82,6 +81,9 @@ class DesktopOAuth2 {
     }
     if (codeVerifier != null) {
       tokenReqPayload.putIfAbsent("code_verifier", () => codeVerifier);
+    }
+    if (!desktopAuthCodeFlow.clientSecret.isEmpty) {
+      tokenReqPayload.putIfAbsent("client_secret", () => desktopAuthCodeFlow.clientSecret);
     }
 
     final response = await http.post(Uri.parse(desktopAuthCodeFlow.tokenUrl),
