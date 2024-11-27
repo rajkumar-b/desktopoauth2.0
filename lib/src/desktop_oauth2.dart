@@ -75,15 +75,12 @@ class DesktopOAuth2 {
       'code': code
     };
 
-    if (desktopAuthCodeFlow.pkce == false) {
+    if ((desktopAuthCodeFlow.pkce == false) || (desktopAuthCodeFlow.clientSecret.isNotEmpty)) {
       tokenReqPayload.putIfAbsent(
           "client_secret", () => desktopAuthCodeFlow.clientSecret!);
     }
     if (codeVerifier != null) {
       tokenReqPayload.putIfAbsent("code_verifier", () => codeVerifier);
-    }
-    if (!desktopAuthCodeFlow.clientSecret.isEmpty) {
-      tokenReqPayload.putIfAbsent("client_secret", () => desktopAuthCodeFlow.clientSecret);
     }
 
     final response = await http.post(Uri.parse(desktopAuthCodeFlow.tokenUrl),
