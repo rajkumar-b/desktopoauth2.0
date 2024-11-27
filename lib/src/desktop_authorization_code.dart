@@ -6,7 +6,7 @@ class DesktopAuthorizationCodeFlow {
   late String authState;
   late List<String> scopes;
   late int localPort;
-  String? clientSecret;
+  late String clientSecret;
   bool pkce = true;
   //This html code will be sends as response to browser when the redirect uri hit the dart localserver with authorization code 
   String? htmlResponsePayload;
