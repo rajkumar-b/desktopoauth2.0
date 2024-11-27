@@ -33,8 +33,10 @@ desktopAuthCodeFlow.authorizationUrl = '';
 desktopAuthCodeFlow.clientId = '';
 // Any port
 desktopAuthCodeFlow.localPort = 9298;
-//PKCE or Client Secret
+//PKCE Enabled
 desktopAuthCodeFlow.pkce = true;
+// Client Secret (Required for Token Exchange)
+desktopAuthCodeFlow.clientSecret=''
 //Redirect URI example - http://localhost:9298/callback
 desktopAuthCodeFlow.redirectUri = '';
 //Scope
@@ -64,7 +66,7 @@ desktopAuthCodeFlow.authorizationUrl = '';
 desktopAuthCodeFlow.clientId = '';
 // Any port
 desktopAuthCodeFlow.localPort = 9298;
-//PKCE or Client Secret
+//PKCE Disabled [Uses Client Secret]
 desktopAuthCodeFlow.pkce = false;
 // Client Secret
 desktopAuthCodeFlow.clientSecret=''
